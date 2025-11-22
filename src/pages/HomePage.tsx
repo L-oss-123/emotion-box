@@ -19,7 +19,7 @@ export const HomePage = () => {
       setLoading(true);
       try {
         const [cardData, tagData] = await Promise.all([
-          memoryCardService.list({ ownerId: session?.user.id }),
+          memoryCardService.list({ ownerId: session?.user.id, onlyMine: true }),
           memoryCardService.fetchTags()
         ]);
         setCards(cardData);
